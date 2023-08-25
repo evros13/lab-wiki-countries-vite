@@ -1,4 +1,31 @@
 #root {
   margin: 0 auto;
   text-align: center;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+}
+
+nav {
+  background-color: rgba(40, 73, 241, 0.902);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  
+}
+
+.navLink {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding-left: 20px;
+  letter-spacing: 1px;
+
+}
+
+.loading {
+  width: 100px;
+  margin-top: 200px;
 }

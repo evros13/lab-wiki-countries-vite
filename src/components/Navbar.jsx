@@ -4,7 +4,7 @@ function Navbar() {
 
     return (
         <nav>
-            <Link to="/">WikiCountries</Link>
+            <Link className="navLink" to="/">WikiCountries</Link>
         </nav>
     )
 

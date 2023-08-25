@@ -1,4 +1,3 @@
-import CountryFlag from 'react-country-flag';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -25,6 +24,10 @@ function HomePage() {
 
     function toLowerCase(str) {
         return str.toLowerCase()
+    }
+
+    if (countries.length === 0) {
+        return <img className="loading" src="./../public/loadinggif.gif" alt="Loading" />
     }
     
     return (
