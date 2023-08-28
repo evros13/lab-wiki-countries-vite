@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 function CountryDetails() {
     const { alpha3Code } = useParams();
-    const [countryInfo, setCountryInfo] = useState({});
+    const [countryInfo, setCountryInfo] = useState(null);
+    const [isLoading, setIsLoading] = useState(true)
     const countryApi = `https://ih-countries-api.herokuapp.com/countries/${alpha3Code}`;
 
     useEffect(() => {
@@ -13,22 +14,21 @@ function CountryDetails() {
             .then((data) => {
                 setCountryInfo(data);
                 console.log(data);
+                setIsLoading(false);
             })
             .catch((err) => {
                 console.log(err);
             });
     }, [countryApi]);
 
-    if (!countryInfo) {
-        return <p>Loading...</p>
-    }
-    
-
     return (
         <>
+
+            {!isLoading ? 
+            
             <div className="container">
                 <p style={{ fontSize: "24px", fontWeight: "bold" }}>Country Details</p>
-                <h1>{countryInfo.name && countryInfo.name.common}</h1>
+                <h1>{countryInfo.name.common}</h1>
 
                 <table className="table">
                     <thead></thead>
@@ -62,6 +62,9 @@ function CountryDetails() {
                     </tbody>
                 </table>
             </div>
+            :
+            <p>Loading...</p>
+        }
         </>
     );
 }
